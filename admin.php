@@ -17,7 +17,9 @@ define('FLEXSLIDER_VERSION', '0.5');
  * Plugin administration
  */
 initvar('flexslider');
-if ($flexslider) {
+if (function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministration('flexslider')
+    || $flexslider
+) {
     initvar('admin');
     initvar('action');
     $plugin = basename(dirname(__FILE__),"/");
