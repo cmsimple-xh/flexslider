@@ -1,0 +1,21 @@
+Update
+======
+Install everything on top.
+Go to plugin backend and activate plugin.
+
+
+
+Writing Permissions
+===================
+If you usually have to give writing permissions to files,
+you will have to give writing permission (folder + files) to 
+
+plugins/flexslider/languages/
+plugins/flexslider/config/ 
+userfiles/plugins/flexslider/
+
+In php version 5.3 or less with
+*** save_mode=on ***
+the plugin cannot create writable folders.
+However the plugin comes with all necessary folders. So after
+having given writing permissions, it should work ok.

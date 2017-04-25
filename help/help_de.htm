@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Hilfedatei: Flexslider_XH</title>
+<style type="text/css">
+body {background: #eaf4fb; font: normal normal normal 12pt/1.6 'trebuchet MS',sans-serif}
+.notice {margin-left:3em; font-style:italic; color:#050; font-size:92%;}
+.new {margin:0 0 0 3em;font-size:92%; color:#400}
+code {white-space:pre;font-family: consolas, 'courier new', monospace; font-weight:bold; font-size: 90%; color:#900;}
+body div.main {width: 940px; margin: 3em auto; background: #eee; border: 1px solid #5ab; padding: 0;box-shadow: 0em 0em 2em 0em #bbd;border-radius: 4.5em;}
+body div.main div.main2 {width: 760px; margin: 30px auto; background: #fff; border: 2px solid #8de; padding: 0 56px 3em;border-radius: 3em;}
+p {margin:0 0 1em 0;}
+em, b, strong {font-weight: bold; color:#008;letter-spacing:1px;}
+.red {color:red;font-weight:bold;}
+h2, h3, h4, h5, h6 {font-family: Georgia; color: #099;margin:3em 0 .7em;}
+h4 {margin:0}
+h4+ul>li{font-size:.9em;line-height:1.2;color:#050;}
+h5 {margin:0 0 2em;}
+h1 {font: normal normal 30pt Georgia, 'Times new roman', serif;margin:1em 0 0;color: #068; }
+blockquote {margin-left:6em;opacity:.8;}
+table {	table-layout:fixed;border-collapse: collapse;width:100%;border: 4px solid #ccc;}
+table td {width:50%; border: 1px solid black;padding:.5em;overflow:hidden;}
+</style>
+
+
+</head>
+<body>
+<div class="main">
+<div class="main2">
+<h1>Flexslider_XH 0.5</h1>
+<h5>by svasti</h5>
+<p>Benötigt php 5</p>
+
+<p>Dieses Plugin integriert das jQuery-Plugin Flexslider 2.5.0 (Version Mai 2015) <a href="http://twitter.com/mbmufffin" target="_blank">Tyler Smith</a> (veröffentlich auf <a href="https://github.com/woothemes/FlexSlider" target="_blank">Github</a>) in CMSimple_XH. Die Markdown zu HTML Umwandlung nutzt den <a href="http://parsedown.org" target="_blank">Parsedown</a>-Parser von Emanuil Rusev.</p>
+
+<h3>Neu in 0.5</h3>
+<ul>
+<li>jQuery.Flexslider Update von Version 2.2.0 auf 2.5.0</li>
+<li>Läuft unter PHP 7</li>
+<li>Bugfixes und Verbesserungen im Backend</li>
+<li>Möglichkeit, Flexslider über die Pagedata zu steuern</li>
+</ul>
+<h3>Neu in 0.4.7</h3>
+<ul>
+<li>"Static" Animation (d.h. keine Animation) mit anklickbarer seitenfüllender Bildschau. Diese Möglichkeit erscheint automatisch wenn "static" und ein festes Seitenverhältnis ausgewählt sind. Klick auf ein Bild führt zum nächsten Bild. Wenn Großanzeige angeklickt ist, funktionieren vor/zurück Cursortasten, und mit ESC-Taste/ Klick auf entsprecheden Button wird die seitenfüllende Anzeige beendet.</li>
+<li>Alle Bilder eines Ordner können in einem Rutsch importiert werden</li>
+<li>Animationsgeschwindigkeit und Slideshowgeschwindigkeit individuell per Slider einstellbar</li>
+<li>Bildreihenfolge kann im Backend durch anklickbare Pfeile nach unten und oben geändert werden</li>
+<li>kleinere Bugfixes</li>
+</ul>
+
+<h3>Neu in 0.4</h3>
+<ul>
+ <li>Mehrere Flexslider pro Seite jetzt unabhängig voneinander</li>
+ <li>Auch ohne Javascript wird jetzt das erste Bild einer Slide-Show angezeigt</li>
+ <li>Neuer Bildtextstil "Overlay2" mit schwarzem Text und weißer Buchstabenumrandung</li>
+</ul>
+<p><b>N.B.:</b> Der innere Abstand (padding) des <code>&lt;div></code>-Bereichs um den Text bei Nurtext-Slides ist verkleinert worden. Die Einstellung passt aber nicht für alle Templates. Man kann sie in der Plugin-Css ändern bei
+ <code>.flexslider ul.slides li div.flex-text</code></p>
+ <p><b>N.B.:</b> Die Animation <b>vertical</b> benötigt Bilder gleicher Höhe. Das wird z.B. durch Einstellung eines festen
+Seitenverhältnisses erreicht. Nurtext-Slides allerding haben variable Höhe und bringen den Animationsrhythmus in Versatz.
+Text unter den Bildern bei den Bildtext-Stilen <b>normal</b> und <b>inverted</b>
+verschieben ebenfalls den Animationsrhythmus wenn es daneben noch Bilder ohne Text gibt.</p>
+
+<h3>Update auf neueste Version</h3>
+<p>Über bestehendes Plugin installieren und anschließend im Backend Plugin aktivieren.
+Bei Update von Version 0.1 muss die Bildliste erneut eingegeben werden.</p>
+
+<h4>Schreibrechte</h4>
+<p>Falls Sie normalerweise Schreibrechte vergeben müssen, am besten schon <b>vor</b> der Aktivierung Rechte für Ordner und Dateien von <code>plugins/flexslider/languages/</code> und <code>plugins/flexslider/config/</code> geben. (Mehr dazu siehe update.txt.)</p>
+
+
+<h3>Anwendung im Seitenbereich</h3>
+<p><code>{{{flexslider}}}</code> Flexslider mit Standard-Datendatei (XH 1.6.5)<br>
+<code>{{{flexslider();}}}</code> Flexslider mit Standard-Datendatei (XH 1.6)<br>
+<code>{{{flexslider 'meine_Flexslider_Datendatei.php'}}}</code> Flexslider mit spezifischer Bilddatei (XH 1.6.5) <br>
+<code>{{{flexslider('meine_Flexslider_Datendatei.php');}}}</code> Flexslider mit spezifischer Bilddatei (XH 1.6) <br><code>{{{PLUGIN:flexslider('meine_Flexslider_Datendatei.php');}}}</code>  bei CMSimple 4.x und XH 1.5<p>
+
+<h3>Anwendung in Template oder Newsbox</h3>
+<p>Da das Plugin jQuery nutzt, muss zuerst jQuery aufgerufen werden. Dazu in den <b>Head-Bereich des Templates</b> einfügen
+<code>&lt;?php flexslider_init();?></code> und zwar unbedingt vor dem Aufruf von <code>&lt;?php echo head();?></code>.<br>
+In einer Newsbox den normalen Pluginaufruf für Flexslider nutzen. Im Template ist der Aufruf <code>&lt;?php echo flexslider();?></code>.<br>
+<small>(Nach Anleitung von <a href="http://3-magi.net" target="_blank">cmb</a>.)</small></p>
+
+<h3>Mehrere Flexslider</h3>
+<p>Dazu für jeden Flexslider eine eigene Bild-Datendatei anlegen.
+Oben in der Dateiauswahl (wo normalerweise "Standard-Datendatei" steht) auswählen:
+<b>neue Datendatei erstellen</b>. Das Plugin fragt dann nach einem Namen; einen Namen ohne Umlaute eingeben und abschicken, (vorhandene Dateien mit gleichem Namen werden ohne Warnung überschrieben,) danach wird
+mit diesem Namen eine neue Bilddatei eröffnet.</p>
+<p>
+Je nachdem wie viele Bilder man im Flexslider haben will, zuerst mit <b>Elem. hinzufügen</b> leere Elemente (= Dias, Slides) erstellen und anschließend diese Elemente
+mit Bildern und/oder Text versehen. </p>
+<p>Dazu auf ein Leerbild klicken – das Feld wird dann rot umrandet – und dann einen Bildnamen anklicken. Die Voreinstellung im Plugin (kann man abstellen) ist, dass der rote Rand gleich zum nächsten Leerbild springt. So kann man die gewünschten Bilder ziemlich schnell einfügen. Anschließend Seitenverhältnis, Animation etc. einstellen und sichern. Alternativ auf <b>Vorschau</b> klicken; vor dem Anzeigen der Vorschau wird automatisch gesichert.</p>
+<p>
+Dann auf der gewünschten Seite mit <code>{{{flexslider('Dateinamen');}}}</code> aufrufen.</p>
+
+<h3>Flexslider über die Pagedata steuern</h3>
+<p>Bei Flexslider im Template können je nach Seite andere Bilderlisten aktiviert werden.
+Dazu zuerst in der Konfiguration <code>Pagedata-imagelist</code> anklicken und anschließend
+auf der Eingabeseite (gerade über den eingegebenen Bildern) <code>Pagedata-Bildliste Vorrang</code>. Jetzt wird Flexslider nachschauen, ob in der Pagedata der jeweils aktuellen Seite eine alternative Bildliste steht.</p>
+
+<p>Die Pagedata muss dazu aber mit einen anderen Plugin bearbeitet werden, z.B.  Morepagedata. In Morepagedata die Variable <code>flx_data</code> als input_field erstellen, anschließend auf den gewünschten Seiten den jeweils vollständigen Namen einer alternative Flexslider Liste in das Feld eingeben. Diese alternativen Listen vorher ganz normal in Flexslider als neue Dateien erstellen.</p>
+
+
+
+<h3>Bild-Text und Text ohne Bild</h3>
+<p>Gibt man Text zu einem Bild ein, vergrößert sich die Textzeile automatisch mit dem eingegebenen Text.
+Bei Bildunterschriften wird in der Textzeile die
+Eingabe einer neuen Zeile automatisch als HTML-Zeilenumbruch interpretiert.</p>
+<p>
+Lässt man das Bildfeld leer, wird die Texteingabe als in <b>Markdown</b>-Syntax geschrieben interpretiert.
+Markdown ist ein einfaches System um Text in Absätzen, Überschriften, Listen, fett und kursiv ohne html darzustellen.
+Mehr über die Markdown-Syntax findet man im Internet, z.B. <a href="http://markdown.de/" target="_blank">hier</a>.
+Einige Beispiele:</p>
+<table>
+<thead><th>Eingabe<br>im Textfeld</th><th>Von Markdown generierter<br>Code (unsichtbar)</th><th>Sichtbare Darstellung<br>im Flexslider</th></thead>
+<tr>
+<td><code>Überschrift
+===========
+##### Überschrift h5
+
+Dies ist ein Absatz
+
+Dies ist *kursiv* und **fett**
+
+- Dies ist eine
+- Punkteliste
+
+1. Dies eine
+2. nummerierte Liste
+
+[here](?Start) klicken
+= Link zur Startseite</code></td>
+  <td>  <code>&lt;h1>Überschrift&lt;/h1>
+&lt;h5>Überschrift h5&lt;/h5>
+&lt;p>Dies ist ein Absatz&lt;/p>
+&lt;p>Dies ist &lt;em>kursiv&lt;/em>
+und &lt;strong>fett&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Dies ist eine&lt;/li>
+&lt;li>Punkteliste&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Dies eine&lt;/li>
+&lt;li>nummerierte Liste&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a href="?Start">hier&lt;/a>
+klicken = Link zur
+Startseite&lt;/p></code></td>
+<td><h1>Überschrift</h1>
+<h5>Überschrift h5</h5>
+<p>Dies ist ein Absatz</p>
+<p>Dies ist <i>kursiv</i> und <b>fett</b></p>
+<ul>
+<li>Dies ist eine</li>
+<li>Punkteliste</li>
+</ul>
+<ol>
+<li>Dies eine</li>
+<li>nummerierte Liste</li>
+</ol>
+<p><a href="?Start">hier</a> klicken
+= Link zur Startseite</p></td>
+ </tr>
+</table>
+
+
+<h3>Probleme in Templates mit umfangreichen oder mehreren Stylesheets</h3>
+<p>Manche Template haben sehr weitreichende detaillierte Anweisungen, die sich auf Flexslider unerwünscht auswirken.
+Andere laden im Template Stylesheets nach und
+überschreiben damit das Flexslider Stylesheets. Eine Gegenmaßnahme ist,
+genau am Ende des Head-Bereichs im Template, also vor <code>&lt;/head></code>, überschriebene Flexslider css-Angaben noch einmal einzufügen.
+<b>Bei Templates von Torsten Behrens muss man z.B. einfügen:</b>
+<br>
+<code>&lt;style  type="text/css">
+.flexslider ul {margin:0;padding:0;}
+.flexslider ul > li:before {content:"";content:none;}
+.flex-control-paging li a {margin:0 5px;}
+&lt;/style>
+</code>
+Bei derartigen Problemen gilt es, mit den css-Angaben zu experimentieren und
+immer mal wieder mit der Ausgabe in anderen Templates zu vergleichen.
+Bleiben die Probleme bestehen, könnten Sie erwägen den Template-Programmierer oder im <a href="http://cmsimpleforum.com" target="_blank">CMSimpleforum</a> um Rat zu fragen.</p>
+
+
+<h3>Design-Änderungen <br>durch Änderungen der flexslider/css/stylesheet.css</h3>
+
+<h4>Keinen Rand um die Bilder?</h4>
+<p>In der stylesheet.css, Abschnitt "DEFAULT THEME", Zeilen 84 bis 88 auskommentieren.</p>
+
+<h4>Aussehen des Bildtextes</h4>
+<p>Das Aussehen des Bildtextes wird durch <code>.flex-caption</code> zusammen mit der ausgewählten Textdarstellung bestimmt, d.h. <code>.flex-normal</code>,
+<code>.flex-inverted</code> oder <code>.flex-overlay</code> und den anschließenden <code>a:hover</code>-Werten. Möchte man beispielsweise einen kleineren Overlay-Bereich, kann man <code>width: 96%;padding: 2%;</code> aus <code>.flex-overlay</code> löschen.
+
+<h4>Eckige Buttons in der Navigationsliste</h4>
+<p>Unter <code>.flex-control-paging li a </code> löschen <code>border-radius: 20px;</code>.</p>

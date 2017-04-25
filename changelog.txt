@@ -1,0 +1,99 @@
+Flexslider_XH
+by svasti
+
+0.1 initial release April 2014
+    only one slider per site possible,
+    only slide animation,
+    images could have links and text
+
+0.2 beta June 2014
+- backend completely new
+- general image browser
+- flexslider image list file admin, to enable using multiple sliders
+  with any image from the userfiles (no special folder required)
+- options for individual flexsliders:
+  fade/slide, caption-text style, random sequence or not, halt on mouse over
+- easy updating, installation over existing plugin
+- image resizing tool with a little sharpening added
+
+0.2 July 2014
+- several bug fixed, found by cmb, thx!
+- horizontal scroll positions (in page and in imagelist table) are being retained on reload
+  after submit, adding, moving or deleting items
+- help files improved 
+- added more animation options: static with external back/forth nav and slide-nr/total slides,
+  reverse slider, vertical slider
+- select randomstart, back/forth navigation, control navigation under the slider
+- text only slides are possible, entered text will be interpreted as Markdown
+
+0.21 bugfix (thx cmb)
+
+0.3 September 2014
+- Easier assigning a new version, just change one constant
+- now only automatic update from 0.2, not from 0.1
+- Not necessary to click "used in template or newsbox" in config (nice suggestion from cmb)
+- Updated help file
+- possibility to set standard, flexible and fixed image ratios and to limit height in this way
+- margins for text only slides can be set per slide, and input line will disappear when image is set
+- when changing the flexslider image folder, the image browser will go to the folder
+  in which the 1st image is, so that you are right away in the fitting image folder (request by stoa)
+- additional save and preview button at the bottom
+- bugfix (reported by stoa)
+
+0.3.1 Sep 2014
+- bugs reported by stoa and Ludwig fixed
+- Cursor changes to "no-drop" on top of slider, if animation halt on mouse over is set and slide has no link
+
+0.3.2 Oct 2014
+- added alt-attribute to images
+
+0.4 Nov 2014
+- multiple sliders on a page now with independent settings
+- noscript now dispays the 1st image or the text-only-slide of the image list
+- overlay2 added (black text with white shadow around)
+- Top preview button now invisible when delete, copy or create file buttons are displayed
+- bugfix (several settings were lost on reordering the slide list in the backend)
+- bugfix2 resume animation improved (needed different coding for halt on mouse over and no halt on mouse over,
+  display area for cursor no-drop improved,
+- lots of small improvements, like updated help files etc-
+
+0.4.1 Nov 2014
+- margin settings for text-only slides improved
+
+0.4.2 Dec 2014
+- bugfix (reported by Ludwig) multiple "static" sliders wouldn't work independently
+
+0.4.5 Dec 2014
+- $(document).ready() instead of $(window).load()
+- inport all images from a folder
+- possibility to set animation and slideshow speed individually per slider
+
+0.4.6 Dec 2014
+- deleted placeholder entries in speed input fields slideshow and animation because users were confused
+
+0.4.7 Feb 2015
+- full page images possible from static "animation" with display in defined ratio
+- newest flexslider from Github (Aug 2014), not from Woothemes (2012)
+- backend image down arrow for reordering images
+- fixed bug that cut of part of very long images in fixed ratio display
+- changing image folders now automatically saves the image list, so that the user doesn't loose his work
+- temporary variables now saved as SESSION variables
+- renamed internal variables and functions for better code readability
+- reworked the java script to enable the esc key to revert the full size display and
+  enable cursor key control in full size display even when multiple flexsliders a on a page.
+  After terminating full size display the cursor control is disabled.
+
+
+0.5 August 2015
+- Ready for php 7
+- Bugfix, bug found by cmb: since PHP5.3 readdir may return NULL which may result in an infinite loop
+- Updated to jQuery.Flexslider 2.5.0
+- Bugfix for static images in noscript situation
+- Setting of individual speed per list can be hidden in config
+- Flexslider can now be driven by pagedata
+- Added code to prevent error messages before activation of plugin
+- New "Back"-button above preview
+- removed all "tag('...')" calls
+- Added a new caption style "overlay 3":large (responsive) white text
+  on dark opaque background on the left side of the image
+

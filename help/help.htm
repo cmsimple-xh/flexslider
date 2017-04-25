@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Helpfile: Flexslider_XH</title>
+<style type="text/css">
+body {background: #eaf4fb; font: normal normal normal 12pt/1.6 'trebuchet MS',sans-serif}
+.notice {margin-left:3em; font-style:italic; color:#050; font-size:92%;}
+.new {margin:0 0 0 3em;font-size:92%; color:#400}
+code {white-space:pre;font-family: consolas, 'courier new', monospace; font-weight:bold; font-size: 90%; color:#900;}
+body div.main {width: 940px; margin: 3em auto; background: #eee; border: 1px solid #5ab; padding: 0;box-shadow: 0em 0em 2em 0em #bbd;border-radius: 4.5em;}
+body div.main div.main2 {width: 760px; margin: 30px auto; background: #fff; border: 2px solid #8de; padding: 0 56px 3em;border-radius: 3em;}
+p {margin:0 0 1em 0;}
+em, b, strong {font-weight: bold; color:#008;letter-spacing:1px;}
+.red {color:red;font-weight:bold;}
+h2, h3, h4, h5, h6 {font-family: Georgia; color: #099;margin:3em 0 .7em;}
+h4 {margin:0}
+h4+ul>li{font-size:.9em;line-height:1.2;color:#050;}
+h5 {margin:0 0 2em;}
+h1 {font: normal normal 30pt Georgia, 'Times new roman', serif;margin:1em 0 0;color: #068; }
+blockquote {margin-left:6em;opacity:.8;}
+table {	table-layout:fixed;border-collapse: collapse;width:100%;border: 4px solid #ccc;}
+table td {width:50%; border: 1px solid black;padding:.5em;overflow:hidden;}
+</style>
+
+
+</head>
+<body>
+<div class="main">
+<div class="main2">
+
+<h1>Flexslider_XH 0.5</h1>
+<h5>by svasti</h5>
+
+<p>Requires php 5</p>
+
+<p>This plugin integrates the jQuery plugin Flexslider 2.5.0 (version Mai 2015) by <a href="http://twitter.com/mbmufffin" target="_blank">Tyler Smith</a> (published on <a href="https://github.com/woothemes/FlexSlider" target="_blank">Github</a>) into CMSimple_XH. The Markdown to HTML feature uses the <a href="http://parsedown.org" target="_blank">Parsedown</a> parser by Emanuil Rusev.</p>
+
+<h3>New in 0.5</h3>
+<ul>
+<li>jQuery.Flexslider updated from version 2.2.0 to 2.5.0</li>
+<li>Ready for php 7</li>
+<li>Bugfixes and improvements in backend</li>
+<li>Possibility to drive flexslider via the pagedata</li>
+</ul>
+
+</ul>
+<h3>New in 0.4.7</h3>
+<ul>
+ <li>New "static" display with clickable full screen size view. Will be automatically there when animation "static" and fixed ratio are selected.
+A click on the image will advance the slideshow. Once the image is set to fullsize, back/forth cursor keys will work (even with multiple flexsliders on a page). Full size view can be ended by botton click or the esc key.</li>
+ <li>All images from a folder can be imported in one go</li>
+ <li>Animation and slideshow speed can be set individually per slider</li>
+ <li>In the backend every image has an up and a down arrow for reordering images</li>
+</ul>
+</ul>
+<h3>New in 0.4</h3>
+<ul>
+ <li>Different sliders on the same page now independend of each other</li>
+ <li>Without java script the first image of an image list will be shown</li>
+ <li>New caption style "Overlay2", black text with a bit of white around</li>
+</ul>
+</ul>
+<p><b>N.B.:</b> The padding of the <code>&lt;div></code> around the text in text-only slides has been reduced.
+This doesn't fit in all templates. You can change the padding in the css file under <code>.flexslider ul.slides li div.flex-text</code></p>
+<p><b>N.B.:</b> The animation <b>vertical</b> requires images of the same height.
+For images of diferent height choose a fixed display size ratio in the plugin.
+Text-only slides have variable height and will break the cadence of the animation.
+Captions under the images in styles <b>normal</b> and <b>inverted</b>, when not all images have captions,
+also break the cadence.</p>
+
+<h3>Update to newest version</h3>
+<p>Install everything on top.
+Go to plugin backend and activate plugin.
+If you update from version 0.1 you will have to reenter your image list.</p>
+
+<h4>Writing Permissions</h4>
+<p>If you usually have to give writing permissions to files,
+Give writing permission to <code>plugins/flexslider/languages/</code> folder and files,
+and to <code>plugins/flexslider/config/</code> folder and files after installing the plugin and <b>before
+running</b> the activation. (See also update.txt.)</p>
+
+
+<h3>Usage on a page</h3>
+<p><code>{{{flexslider}}}</code> or<br>
+<code>{{{flexslider 'filename.php'}}}</code> for using a specific slider file.</p>
+<p><small>If you are using an older version of XH or CMSimple 4.x, use the old style plugin call: <br>
+<code>{{{PLUGIN:flexslider('name_of_my_flexslider_data_file.php');}}}</code></small></p>
+
+<h3>Usage in template or newsbox</h3>
+<p>Since this plugin uses jQuery, it will not work without calling jQuery first.
+To do this write the code <code>&lt;?php flexslider_init();?></code> in the <code>&lt;head></code>-area of the template <b>above</b> <code>&lt;?php echo head();?></code>.</p>
+<p>
+In a newsbox call the plugin like on a page. In the template the call is <code>&lt;?php echo flexslider();?></code><br>
+<small>(From on <a href="http://3-magi.net" target="_blank">cmb</a>.)</small></p>
+
+
+<h3>Multiple Flexsliders</h3>
+<p>First create a new file by selecting from the option list on top <b>create new file</b>
+(default option <b>standard image file</b>). The plugin will ask for a new name. Enter one (no accented characters nor spaces) and hit return.
+The file with the new name will present itself with one empty item.</p>
+<p>
+Depending on how many images you need, add empty items. A click on the image placeholder will put that item in focus and give it
+a red border. If you click in the image browser on an image name, this image will be put into the placeholder with focus.
+Default setting (can be changed in config) is that the red border then jumps to the next item.</p>
+<p>Select image ratio, type of animation, etc., and save, or go to preview. <b>Preview includes saving automatically.</b></p>
+<p>Finally call Flexslider on a page <code>{{{flexslider('file name');}}}</code>. </p>
+
+<h3>Using the pagedata to drive flexslider</h3>
+<p>If you put your flexslider in the template, you can have different slides on every page.
+First enable <code>Pagedata-imagelist</code> in the config, then go to plugin main and check (just on top of the entered images) <code>use Pagedata image list</code>. How the called flexslider will look for pagedata entries to change its slide show.</p>
+<p>However you need a separate plugin to enter the values in the pagedata, e.g. Morepagedata. With Morepagedata first establish the pagedata variable <code>flx_data</code> as simple input field. On the page where you want different slides, open the new morepagedata field and enter the full name of an alternative flexslider list. For every page where you want a different slide show, prepare these slide shows first as new files in flexslider and enter their names afterwards via the morepagedata field.</p>
+
+
+<h3>Using a slide with text only, without image</h3>
+<p>The text input field is autogrowing. If an image has already been entered into the image field, linebreaks in the text field are interpreted as html new lines.</p>
+<p>
+If the image field is left empty, text entries will be interpreted according to <b>Markdown</b> syntax. Markdown is a simple methode to enter headlines, paragraphs, lists, bold and italic text without html. For more details see the <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown</a> site. Some examples:</p>
+<table>
+<thead><th>Input<br>into textfield</th><th>Resulting code<br>(invisible)</th><th>Resulting view<br>in flexslider</th></thead>
+<tr>
+<td><code>Headline
+========
+##### Headline h5
+
+This is a paragraph
+
+This *italic* and **bold**
+
+- This an unordered
+- list
+
+1. This an
+2. ordered list
+
+click [here](?Start)
+= link to the Start page</code></td>
+  <td>  <code>&lt;h1>Headline&lt;/h1>
+&lt;h5>Headline h5&lt;/h5>
+&lt;p>This is a paragraph&lt;/p>
+&lt;p>This is &lt;em>italic&lt;/em>
+and &lt;strong>bold&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>This an unordered&lt;/li>
+&lt;li>list&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>This an&lt;/li>
+&lt;li>ordered list&lt;/li>
+&lt;/ol>
+&lt;p>click
+&lt;a href="?Start">here&lt;/a>
+= link to the Start page&lt;/p></code></td>
+<td>
+<h1>Headline</h1>
+<h5>Headline h5</h5>
+<p>This is a paragraph</p>
+<p>This is <i>italic</i> and <b>bold</b></p>
+<ul>
+<li>This an unordered</li>
+<li>list</li>
+</ul>
+<ol>
+<li>This an</li>
+<li>ordered list</li>
+</ol>
+<p>click <a href="?Start">here</a>
+= link to the Start page</p></td>
+ </tr>
+</table>
+
+
+<h3>Problems in certain complex templates</h3>
+<p>Some templates contain far reaching detailed style instruction that may interfere with Flexslider.
+And some templates load additional stylesheets with the help of code in the template, thus overwriting
+plugin stylesheets.
+If you experience such problems with Flexslider in your template, a possible solution is to add
+the overwritten css instructions again <b>in the head section of the template.htm,</b> i.e. just before the <code>&lt;/head></code>.
+E.g. <b>for templates by Torsten Behrends add:</b>
+<br>
+<code>&lt;style  type="text/css">
+.flexslider ul {margin:0;padding:0;}
+.flexslider ul > li:before {content:"";content:none;}
+.flex-control-paging li a {margin:0 5px;}
+&lt;/style>
+</code>
+Tackling such problems means trying out different css-settings and comparing it to the display in other templates. If Problems persist,
+think about contacting the template designer or ask for help in the
+<a href="http://cmsimpleforum.com" target="_blank">CMSimpleforum</a>.</p>
+
+<h3>Changing Design via editing flexslider/css/stylesheet.css</h3>
+
+<h4>Don't want border around your images?</h4>
+<p>In stylesheet.css section "DEFAULT THEME" comment out lines 84 to 88.</p>
+
+<h4>Caption text</h4>
+<p>Caption text is styled by <code>.flex-caption</code> plus the choosen caption type, i.e. <code>.flex-normal</code>,
+<code>.flex-inverted</code> or <code>.flex-overlay</code> plus their <code>a:hover</code>-values. For instance, if you want a smaller overlay, delete <code>width: 96%;padding: 2%;</code> from <code>.flex-overlay</code>.</p>
+
+<h4>Huge caption text</h4>
+<p>c</p>
+
+<h4>Square navigation dots</h4>
+<p>In <code>.flex-control-paging li a </code> delete <code>border-radius: 20px;</code>.</p>

@@ -1,0 +1,467 @@
+/*
+ * jQuery FlexSlider v2.5.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 and later license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ * (Some changes and additions by svasti)
+ */
+/* ====================================================================================================================
+ * FONT-FACE
+ * ====================================================================================================================*/
+@font-face {
+  font-family: 'flexslider-icon';
+  src: url('fonts/flexslider-icon.eot');
+  src: url('fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'), url('fonts/flexslider-icon.woff') format('woff'), url('fonts/flexslider-icon.ttf') format('truetype'), url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* ====================================================================================================================
+ * RESETS
+ * ====================================================================================================================*/
+.flex-container a:hover,
+.flex-slider a:hover,
+.flex-container a:focus,
+.flex-slider a:focus {
+  outline: none;
+}
+.slides,
+.slides > li,
+.flex-control-nav,
+.flex-direction-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flex-pauseplay span {
+  text-transform: capitalize;
+}
+/* ====================================================================================================================
+ * BASE STYLES
+ * ====================================================================================================================*/
+.flexslider {
+  margin: 0;
+  padding: 0;
+}
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+}
+.flexslider .slides:after {
+  content: "\0020";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+html[xmlns] .flexslider .slides {
+  display: block;
+}
+* html .flexslider .slides {
+  height: 1%;
+}
+.no-js .flexslider .slides > li:first-child {
+  display: block;
+}
+/* ====================================================================================================================
+ * DEFAULT THEME
+ * ====================================================================================================================*/
+.flexslider {
+  margin: 0 0 60px;
+  background: #ffffff;
+
+  /*************************************************
+  if you don't want white space and border aroung
+  images, delete or comment out the following lines*/
+  border: 4px solid #ffffff;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+  zoom: 1;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+
+.flexslider .slides {
+  zoom: 1;
+}
+.flexslider .slides img {
+  height: auto;
+}
+.flex-viewport {
+  max-height: 2000px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.loading .flex-viewport {
+  max-height: 300px;
+}
+.carousel li {
+  margin-right: 5px;
+}
+.flex-direction-nav {
+  *height: 0;
+}
+.flex-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  /* overflow: hidden; */ /* changed by svasti */
+  opacity: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.flex-direction-nav a:before {
+  font-family: "flexslider-icon";
+  font-size: 2em; /* changed by svasti */
+  display: inline-block;
+  content: '\f001';
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+.flex-direction-nav a.flex-next:before {
+  content: '\f002';
+}
+.flex-direction-nav .flex-prev {
+  left: -50px;
+}
+.flex-direction-nav .flex-next {
+  right: -50px;
+  text-align: right;
+}
+.flexslider:hover .flex-direction-nav .flex-prev {
+  opacity: 0.7;
+  left: 10px;
+}
+.flexslider:hover .flex-direction-nav .flex-prev:hover {
+  opacity: 1;
+}
+.flexslider:hover .flex-direction-nav .flex-next {
+  opacity: 0.7;
+  right: 10px;
+}
+.flexslider:hover .flex-direction-nav .flex-next:hover {
+  opacity: 1;
+}
+/* added by svasti */
+.flexslider:hover .flex-direction-nav .flex-next:hover:before,
+.flexslider:hover .flex-direction-nav .flex-prev:hover:before{
+  color: red;
+}
+.flex-direction-nav .flex-disabled {
+  opacity: 0!important;
+  filter: alpha(opacity=0);
+  cursor: default;
+}
+.flex-pauseplay a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  color: #000;
+}
+.flex-pauseplay a:before {
+  font-family: "flexslider-icon";
+  font-size: 20px;
+  display: inline-block;
+  content: '\f004';
+}
+.flex-pauseplay a:hover {
+  opacity: 1;
+}
+.flex-pauseplay a.flex-play:before {
+  content: '\f003';
+}
+.flex-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  text-align: center;
+}
+.flex-control-nav li {
+  margin: 0 6px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: #666;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-indent: -9999px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.flex-control-paging li a:hover {
+  background: #333;
+  background: rgba(0, 0, 0, 0.7);
+}
+.flex-control-paging li a.flex-active {
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+.flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+.flex-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+.flex-control-thumbs img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: .7;
+  cursor: pointer;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.flex-control-thumbs img:hover {
+  opacity: 1;
+}
+.flex-control-thumbs .flex-active {
+  opacity: 1;
+  cursor: default;
+}
+/* ====================================================================================================================
+ * RESPONSIVE
+ * ====================================================================================================================*/
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {
+    opacity: 1;
+    left: 10px;
+  }
+  .flex-direction-nav .flex-next {
+    opacity: 1;
+    right: 10px;
+  }
+}
+
+
+
+/* added by svasti */
+/* =============== */
+
+/* simpler vertical control, delete lines 64-69 and use the following*/
+/*
+.flex-direction-nav a  { display: block; width: 40px; height: 40px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; opacity: 0; cursor: pointer; color: rgba(0,0,0,0.8); text-shadow: 1px 1px 0 rgba(255,255,255,0.3);  }
+.flex-direction-nav .flex-prev { left: 0; }
+.flex-direction-nav .flex-next { right: 0; text-align: right; }
+.flexslider:hover .flex-prev { opacity: 0.7; left: 0px; }
+.flexslider:hover .flex-next { opacity: 0.7; right: 0px; }
+*/
+
+
+/* Reset so that template css will not interfere with flexslider*/
+.flexslider ul,
+.flexslider ul.slides,
+.flexslider ul.slides li {
+    margin: 0;
+    padding:0;
+}
+.flexslider ul.flex-direction-nav li {
+   list-style-type: none;
+}
+.flexslider ul.slides li img {
+    margin:0;
+}
+.flexslider ul.slides li:before{
+    content:"" !important;
+    content:none !important;
+}
+.flexslider ul.slides li div.flex-text ul > li {
+    overflow-y:visible;
+}
+
+/*==================================*/
+/* Setting for text only slides     */
+.flexslider ul.slides li div.flex-text {
+    margin:10% 15% 0;
+    border:.5em solid #eee;
+    padding:1em 1em 0;
+    border-radius:.5em;
+}
+.flexslider ul.slides li div.flex-text h1,
+.flexslider ul.slides li div.flex-text h2,
+.flexslider ul.slides li div.flex-text h3,
+.flexslider ul.slides li div.flex-text h4,
+.flexslider ul.slides li div.flex-text h5,
+.flexslider ul.slides li div.flex-text h6 {
+    margin-top:0;
+}
+.flexslider ul.slides li div.flex-text ul {
+    list-style:square outside none;
+}
+.flexslider ul.slides li div.flex-text ul,
+.flexslider ul.slides li div.flex-text ol {
+    margin:1em 0;
+    padding-left:1.75em;
+}
+.flexslider ul.slides li div.flex-text ul ul,
+.flexslider ul.slides li div.flex-text ul ol,
+.flexslider ul.slides li div.flex-text ol ol,
+.flexslider ul.slides li div.flex-text ol ul {
+    margin:0;
+}
+
+
+/* Settings for image text */
+.flexslider ul.slides li p.flex-caption {
+    width: 100%;
+    padding: 2px 0;
+    margin:0;
+    display:inline-block;
+    text-align:center;
+}
+.flexslider ul.slides li p.flex-normal {
+}
+.flexslider ul.slides li p.flex-inverted {
+    letter-spacing:1px;
+    font-size:1em;
+    color:white;
+    font-weight:bold;
+    background:#777;
+    text-shadow: 2px 2px 6px  #000;
+}
+/* This setting is for overlay text */
+.flexslider .slides>li {
+    position: relative
+}
+.flexslider ul.slides li p.flex-overlay {
+    width: 96%;
+    padding: 2%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.3);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+    font-weight:bold;
+    letter-spacing:1px;
+}
+.flexslider ul.slides li p.flex-overlay2 {
+    width: 96%;
+    padding: 0 2%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #000;
+    text-shadow: 1px 1px 4px rgba(255,255,255,.7), -1px -1px 4px  rgba(255,255,255,.7), 1px -1px  4px rgba(255,255,255,.7), -1px 1px  4px rgba(255,255,255,.7), 1px 1px 4px  rgba(255,255,255,.7), -1px -1px 4px  rgba(255,255,255,.7), 1px -1px  4px rgba(255,255,255,.7), -1px 1px  4px rgba(255,255,255,.7);
+    font-weight:bold;
+    letter-spacing:1px;
+}
+.flexslider ul.slides li p.flex-overlay3 {
+    position: absolute;
+    left: 0;
+    bottom: 15%;
+    background: rgba(0,0,0,.3);  
+    color: #fff;
+    font:bold 60px sans-serif;
+    padding:2%;
+    width:50%;
+    text-align:center;
+    overflow-y: hidden;
+}
+@media (max-width: 979px) {
+    .flexslider ul.slides li p.flex-overlay3 {
+     font-size: 6vmin;
+    }
+}
+
+.flexslider ul.slides li a:hover p {
+    text-decoration: underline;
+}
+a:hover p.flex-inverted {
+    background:#f77;
+}
+
+
+/* Navigation for static "slider" */
+.extradirnav {
+    font-size:1.4em;
+}
+.extradirnav a {
+    text-decoration:none;
+    color:#555;
+    font-family: "flexslider-icon" !important;
+}
+.extradirnav a:hover {
+    color:red;
+}
+.flexfullsize {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:10000;
+    background:rgba(0,0,0,.7);
+}
+input.flexfullsizebutton {
+    vertical-align:sub;
+    width:20px;
+    height:20px;
+    position:relative;
+    z-index:0;
+}
+input.flexfullsizebutton:hover {
+    background:#fbb;
+}
+.flexfullsize .flexslider ul.slides li p.flex-normal {
+    position: absolute;
+    bottom: 0;
+    background:white;
+}
+.flexfullsize .flexslider ul.slides li p.flex-inverted {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
