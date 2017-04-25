@@ -97,3 +97,5 @@ by svasti
 - Added a new caption style "overlay 3":large (responsive) white text
   on dark opaque background on the left side of the image
 
+0.5.1 April 2017
+- see <https://github.com/cmsimple-xh/flexslider/milestone/1?closed=1>
