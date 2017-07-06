@@ -16,15 +16,9 @@ define('FLEXSLIDER_VERSION', '0.5.1');
 /**
  * Plugin administration
  */
-initvar('flexslider');
 if (function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministration('flexslider')
     || $flexslider
 ) {
-    initvar('admin');
-    initvar('action');
-    $plugin = basename(dirname(__FILE__),"/");
-    $admin  = isset($_POST['admin']) ? $_POST['admin'] : $admin = isset($_GET['admin']) ? $_GET['admin'] : '';
-    $action = isset($_POST['action']) ? $_POST['action'] : $action = isset($_GET['action']) ? $_GET['action'] : '';
     $hjs .= '<link rel="stylesheet" type="text/css" href="'.$pth['folder']['plugins'].$plugin.'/css/backend.css">';
     $o .= print_plugin_admin('on');
 
