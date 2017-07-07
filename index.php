@@ -20,7 +20,7 @@ if (!defined('CMSIMPLE_XH_VERSION')) {
 
 function flexslider($imagefile='')
 {
-    global $plugin_cf,$plugin_tx,$hjs,$pth,$sl,$pd_current;
+    global $plugin_cf,$plugin_tx,$hjs,$pth,$sl,$pd_current,$flexslider_used_in_template_or_newsbox;
     $o = $t = '';
     static $fullscreen = 0;
     static $total=1;
@@ -232,7 +232,7 @@ if ($fullscreen == 1) $x .=  "\n" .
     $x .= '</script>' . "\n\n";
 
 
-    if (isset($plugin_cf['flexslider']['used_in_template_or_newsbox'])) $o .= $x; else $hjs .= $x;
+    if (isset($flexslider_used_in_template_or_newsbox)) $o .= $x; else $hjs .= $x;
 
     foreach ($i['image1'] as $k=>$value) {
 
@@ -326,12 +326,12 @@ if ($fullscreen == 1) $x .=  "\n" .
  */
 function flexslider_init()
 {
-    global $pth,$plugin_cf;
+    global $pth,$plugin_cf, $flexslider_used_in_template_or_newsbox;
 
     include_once($pth['folder']['plugins'].'jquery/jquery.inc.php');
     include_jQuery();
     include_jQueryPlugin('flexslider-min', $pth['folder']['plugins'].'flexslider/js/jquery.flexslider-min.js');
 
-    $plugin_cf['flexslider']['used_in_template_or_newsbox'] = 'true';
+    $flexslider_used_in_template_or_newsbox = true;
 }
 ?>
