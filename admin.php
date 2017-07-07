@@ -179,8 +179,7 @@ if (is_file($pth['file']['plugin_config'])) {
            . '</small></small></h5>' . "\n"
            . '<p id="license" style="display:none;">'
            . 'This plugin is free software under the terms of the GNU General Public License v. 3 or '
-           . 'later, analog to <a href="' . $sn . '?' . uenc($cf['menu']['legal']) . '">'
-           . $cf['menu']['legal'] . '</a><br>'
+           . 'later; see https://www.gnu.org/licenses/gpl.html for details.<br>'
            . '<b>Acknowledgements:</b><br>'
            . 'This plugin uses jQuery/Flexslider version 2.5 by '
            . '<a href="http://twitter.com/mbmufffin" target="_blank">Tyler Smith</a> '
