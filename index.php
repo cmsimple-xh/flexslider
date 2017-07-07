@@ -120,6 +120,10 @@ after: function(slider) {
 
     include_once($pth['folder']['plugins'].'jquery/jquery.inc.php');
     include_jQuery();
+	$hjs .= sprintf(
+		'<link rel="stylesheet" href="%s" type="text/css">',
+		"{$pth['folder']['plugins']}flexslider/css/flexslider.css"
+	);
     include_jQueryPlugin('flexslider-min', $pth['folder']['plugins'].'flexslider/js/jquery.flexslider-min.js');
 
     $speed_slideshow = isset($i['speedshow']) && $i['speedshow'] !== ''
@@ -326,10 +330,14 @@ if ($fullscreen == 1) $x .=  "\n" .
  */
 function flexslider_init()
 {
-    global $pth,$plugin_cf, $flexslider_used_in_template_or_newsbox;
+    global $hjs,$pth,$plugin_cf, $flexslider_used_in_template_or_newsbox;
 
     include_once($pth['folder']['plugins'].'jquery/jquery.inc.php');
     include_jQuery();
+	$hjs .= sprintf(
+		'<link rel="stylesheet" href="%s" type="text/css">',
+		"{$pth['folder']['plugins']}flexslider/css/flexslider.css"
+	);
     include_jQueryPlugin('flexslider-min', $pth['folder']['plugins'].'flexslider/js/jquery.flexslider-min.js');
 
     $flexslider_used_in_template_or_newsbox = true;
