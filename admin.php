@@ -17,7 +17,7 @@ define('FLEXSLIDER_VERSION', '0.5.1');
  * Plugin administration
  */
 if (function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministration('flexslider')
-    || $flexslider
+    || isset($flexslider) && $flexslider
 ) {
     $hjs .= '<link rel="stylesheet" type="text/css" href="'.$pth['folder']['plugins'].$plugin.'/css/backend.css">';
     $o .= print_plugin_admin('on');
