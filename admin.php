@@ -74,8 +74,10 @@ if (is_file($pth['file']['plugin_config'])) {
     if ($scroll1)  $bjs .= 'window.scrollTo(0,'.($scroll1).');';
     if ($scroll2) $bjs .= 'document.getElementById(\'imagelist\').scrollTop = '.$scroll2 .';';
     if (isset($_POST['scroll2'])) {
-        $bjs .= 'document.getElementById(\'list_saved\').style.visibility = \'visible\';
-                 setTimeout(function(){document.getElementById(\'list_saved\').style.visibility = \'hidden\'},1500);';
+        $bjs .= 'if (document.getElementById(\'list_saved\')) {
+                 document.getElementById(\'list_saved\').style.visibility = \'visible\';
+                 setTimeout(function(){document.getElementById(\'list_saved\').style.visibility = \'hidden\'},1500);
+                 }';
     }
 
     // load Java script for autogrowing text area input field
