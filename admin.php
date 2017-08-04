@@ -11,7 +11,7 @@ if (!defined('CMSIMPLE_XH_VERSION')) {
     exit;
 }
 
-define('FLEXSLIDER_VERSION', '0.5.3');
+define('FLEXSLIDER_VERSION', '0.5.4');
 
 /**
  * Plugin administration

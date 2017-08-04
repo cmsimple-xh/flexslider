@@ -105,3 +105,6 @@ by svasti
 
 0.5.3 July 2017
 - see <https://github.com/cmsimple-xh/flexslider/milestone/3?closed=1>
+
+0.5.4 August 2017
+- see <https://github.com/cmsimple-xh/flexslider/milestone/4?closed=1>
