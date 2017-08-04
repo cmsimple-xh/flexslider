@@ -920,7 +920,7 @@ function flx_LinkSelect()
         $levelindicator = '';
         for ($j = 1; $j < $l[$i]; $j++) {$levelindicator .= '&ndash;&nbsp;';}
         $page = $levelindicator.$h[$i];
-        $page = strlen($page)>45? substr($page,0,43).'...':$page;
+        $page = utf8_strlen($page)>45? utf8_substr($page,0,43).'...':$page;
         $pages_select .= '<option value="?'.$u[$i].'"'.$selected.'>'."\n".$page.'</option>';
     }
     $selected = $extlinkinput = $extlink = '';
