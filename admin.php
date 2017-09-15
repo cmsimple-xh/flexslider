@@ -183,7 +183,7 @@ if (is_file($pth['file']['plugin_config'])) {
            . 'This plugin is free software under the terms of the GNU General Public License v. 3 or '
            . 'later; see https://www.gnu.org/licenses/gpl.html for details.<br>'
            . '<b>Acknowledgements:</b><br>'
-           . 'This plugin uses jQuery/Flexslider version 2.5 by '
+           . 'This plugin uses jQuery/Flexslider by '
            . '<a href="http://twitter.com/mbmufffin" target="_blank">Tyler Smith</a> '
            . 'distributed by <a href="http://www.woothemes.com/flexslider/" target="_blank">WooThemes</a><br>'
            . 'For Markdown to HTML the <a href="http://parsedown.org" target="_blank">Parsedown</a> '
