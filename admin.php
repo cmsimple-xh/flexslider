@@ -25,9 +25,10 @@ if (function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministrat
 // This is only to avoid errormessages before plugin activation
 if (is_file($pth['file']['plugin_config'])) {
     $flx_activated = true;
+    define('FLEXSLIDER_CONFIG_VERSION', $plugin_cf['flexslider']['version']);
 } else {
     $flx_activated = false;
-    $plugin_cf['flexslider']['version'] = '';
+    define('FLEXSLIDER_CONFIG_VERSION', '');
 }
 
 
@@ -169,7 +170,7 @@ if (is_file($pth['file']['plugin_config'])) {
 
         // Title and License
         //====================
-        $o .= '<h5>Flexslider_XH '.$plugin_cf['flexslider']['version']
+        $o .= '<h5>Flexslider_XH '.FLEXSLIDER_CONFIG_VERSION
            .  '<small><small> by <a href="http://svasti.de" target="_blank">svasti</a> &nbsp; '
            .  '<input type="button" value="license?" style="font-size:80%;" OnClick="
               if (document.getElementById(\'license\').style.display == \'none\') {
@@ -194,7 +195,7 @@ if (is_file($pth['file']['plugin_config'])) {
         // Easy update: check if updating/activation process should start or not
         //=======================================================================
         if (!isset($plugin_cf['flexslider']['version'])
-            || version_compare($plugin_cf['flexslider']['version'],constant('FLEXSLIDER_VERSION'),'!=')) {
+            || version_compare(FLEXSLIDER_CONFIG_VERSION,constant('FLEXSLIDER_VERSION'),'!=')) {
 
             $o .=  '<h1 style="border:2px red solid;background:yellow;text-align:center;">'
                 .  'Plugin not activated'
