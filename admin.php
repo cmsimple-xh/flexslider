@@ -40,7 +40,8 @@ if (is_file($pth['file']['plugin_config'])) {
 
     if (isset($_POST['activate'])) {
         activate();
-        include $pth['folder']['plugins'] . $plugin . '/config/config.php';
+        header('Location: ' . CMSIMPLE_URL . '?flexslider&normal', true, 303);
+        exit;
     }
 
     if ($flx_activated) {
@@ -118,7 +119,6 @@ if (is_file($pth['file']['plugin_config'])) {
     if ($action=='save_imagefile') {
         $o .= flx_FileAdmin();
         $flx_browse_dir =  $_SESSION['flx_browse_dir'];
-        include($pth['folder']['plugins'].$plugin .'/config/config.php');
     }
 
 
