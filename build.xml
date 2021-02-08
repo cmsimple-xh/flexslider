@@ -14,8 +14,8 @@
         <delete file="export.tar"/>
         <move todir="dist/plugins/flexslider">
             <fileset dir="export">
+                <exclude name=".phive/**"/>
                 <exclude name="build.xml"/>
-                <exclude name="composer.*"/>
                 <exclude name="pax_global_header"/>
                 <exclude name="README.md"/>
             </fileset>
