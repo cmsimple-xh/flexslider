@@ -21,13 +21,13 @@
         </move>
         <mkdir dir="dist/userfiles/plugins/flexslider"/>
         <delete dir="export"/>
-        <zip destfile="flexslider_XH_0.5.4.zip" basedir="dist"/>
+        <zip destfile="flexslider_XH_0.5.5.zip" basedir="dist"/>
         <delete dir="dist"/>
     </target>
 
     <target name="build-patch" description="builds a distributable update package">
         <fail unless="patchee" message="patchee is not defined!"/>
-        <unzip file="flexslider_XH_0.5.4.zip" todir="current"/>
+        <unzip file="flexslider_XH_0.5.5.zip" todir="current"/>
         <unzip file="${patchee}" todir="patchee"/>
         <copy todir="dist">
             <fileset dir="current">
@@ -41,7 +41,7 @@
                 <include name="css/stylesheet.css"/>
             </fileset>
         </delete>
-        <zip destfile="flexslider_XH_0.5.4_PATCH.zip" basedir="dist"
+        <zip destfile="flexslider_XH_0.5.5_PATCH.zip" basedir="dist"
              includeemptydirs="false"/>
         <delete dir="patchee" quiet="true"/>
         <delete dir="current" quiet="true"/>
