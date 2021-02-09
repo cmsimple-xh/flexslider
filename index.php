@@ -247,7 +247,7 @@ if ($fullscreen == 1) $x .=  "\n" .
                 : '<a href="'.$i['link'][$k].'">';
         } else $t .= '<div class="next'.$filename.'" style="user-select:none;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;-khtml-user-select: none;" >';
       	if (isset($i['image1'][$k]) && $i['image1'][$k]) {
-            $width = isset($i['width'][$k])? 'style="width:'.$i['width'][$k].'%;margin:0 auto;"' : '';
+            $width = isset($i['width'][$k])? 'style="width:'.json_encode($i['width'][$k]).'%;margin:0 auto;"' : '';
             $t .= '<div style="width:100%;">';
             /*$t .= '<div style="position:absolute;margin-left:50%; border: 1px solid blue;">
                     <div style="padding:10%">
