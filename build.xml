@@ -16,6 +16,7 @@
                 <exclude name=".phive/**"/>
                 <exclude name="build.xml"/>
                 <exclude name="README.md"/>
+                <exclude name="teplad.xml"/>
             </fileset>
         </move>
         <mkdir dir="dist/userfiles/plugins/flexslider"/>
