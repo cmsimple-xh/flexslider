@@ -19,6 +19,9 @@ define('FLEXSLIDER_VERSION', '0.5.4');
 if (function_exists('XH_wantsPluginAdministration') && XH_wantsPluginAdministration('flexslider')
     || isset($flexslider) && $flexslider
 ) {
+    if (function_exists('XH_registerStandardPluginMenuItems')) {
+        XH_registerStandardPluginMenuItems(true);
+    }
     $hjs .= '<link rel="stylesheet" type="text/css" href="'.$pth['folder']['plugins'].$plugin.'/css/backend.css">';
     $o .= print_plugin_admin('on');
 
