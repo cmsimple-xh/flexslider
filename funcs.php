@@ -796,11 +796,11 @@ function flx_AspectRatio($width=0,$height=0)
     if ($ratio > 1.98 && $ratio < 2.02) return '2:1, ';
     for ($i=1;$i<=20;$i++ ) {
         $t = round($i * $ratio, 2);
-        $t = round($t)==$t
+        $t = ((round($t)==$t
            ? $t
-           : round($t)== $t + .01
+           : round($t)== $t + .01)
            ? $t
-           : round($t)== $t - .01
+           : round($t)== $t - .01)
            ? $t
            : 0;
         if ($t) {
