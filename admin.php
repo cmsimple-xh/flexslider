@@ -133,7 +133,9 @@ if (is_file($pth['file']['plugin_config'])) {
     flx_JsImgSelector();
 
 
-    flx_MakeDefaultFile();
+    if ($flx_activated) {
+        flx_MakeDefaultFile();
+    }
 
 
     // receive and save changes to the image list
@@ -144,9 +146,11 @@ if (is_file($pth['file']['plugin_config'])) {
         else flx_SaveImgList();
     }
 
+    if ($flx_activated) {
+        // read the flexslider image list into an array
+        $imagearray = json_decode(file_get_contents($imagefile_pth.$activefile),true);
+    }
 
-    // read the flexslider image list into an array
-    $imagearray = json_decode(file_get_contents($imagefile_pth.$activefile),true);
 
 
 
