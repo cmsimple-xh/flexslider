@@ -11,4 +11,7 @@ from time to time.
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 
-For further information see help/help.htm.
+For further information see
+[English](https://htmlpreview.github.io/?https://github.com/cmsimple-xh/flexslider/blob/master/help/help.htm) or
+[German](https://htmlpreview.github.io/?https://github.com/cmsimple-xh/flexslider/blob/master/help/help_de.htm)
+help file.
