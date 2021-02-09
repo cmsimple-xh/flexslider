@@ -8,7 +8,6 @@
     </target>
 
     <target name="build" description="builds distributable ZIP archive">
-        <fail unless="version" message="version is not defined!"/>
         <exec command="git archive -o export.zip HEAD" checkreturn="true"/>
         <unzip file="export.zip" todir="export"/>
         <delete file="export.zip"/>
@@ -21,14 +20,13 @@
         </move>
         <mkdir dir="dist/userfiles/plugins/flexslider"/>
         <delete dir="export"/>
-        <zip destfile="flexslider_XH_${version}.zip" basedir="dist"/>
+        <zip destfile="flexslider_XH_0.5.4.zip" basedir="dist"/>
         <delete dir="dist"/>
     </target>
 
     <target name="build-patch" description="builds a distributable update package">
         <fail unless="patchee" message="patchee is not defined!"/>
-        <fail unless="version" message="version is not defined!"/>
-        <unzip file="flexslider_XH_${version}.zip" todir="current"/>
+        <unzip file="flexslider_XH_0.5.4.zip" todir="current"/>
         <unzip file="${patchee}" todir="patchee"/>
         <copy todir="dist">
             <fileset dir="current">
@@ -42,7 +40,7 @@
                 <include name="css/stylesheet.css"/>
             </fileset>
         </delete>
-        <zip destfile="flexslider_XH_${version}_PATCH.zip" basedir="dist"
+        <zip destfile="flexslider_XH_0.5.4_PATCH.zip" basedir="dist"
              includeemptydirs="false"/>
         <delete dir="patchee" quiet="true"/>
         <delete dir="current" quiet="true"/>
