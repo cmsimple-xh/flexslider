@@ -81,19 +81,13 @@
   <descriptions>
     <!-- description of the plugin, ca. 200 characters, you can use <br/>, <ol></ol>, <ul></ul>, <li></li>, <b></b>, <i></i>. -->
     <description lang="en">
-      This plugin integrates the jQuery plugin Flexslider by
-      <a href="http://twitter.com/mbmufffin">Tyler Smith</a> (published on
-      <a href="https://github.com/woothemes/FlexSlider">Github</a>) into CMSimple_XH.
-      The Markdown to HTML feature uses the <a href="http://parsedown.org/">Parsedown</a>
-      parser by Emanuil Rusev.
+      This plugin integrates the jQuery plugin Flexslider by Tyler Smith into CMSimple_XH.
+      The Markdown to HTML feature uses the Parsedown parser by Emanuil Rusev.
     </description>
     <!-- Beschreibung des Plugins, ca. 200 Zeichen, es können <br/>, <ol></ol>, <ul></ul>, <li></li>, <b></b>, <i></i> genutzt werden. -->
     <description lang="de">
-      Dieses Plugin integriert das jQuery-Plugin Flexslider von
-      <a href="http://twitter.com/mbmufffin">Tyler Smith</a> (veröffentlich auf
-      <a href="https://github.com/woothemes/FlexSlider">Github</a>) in CMSimple_XH.
-      Die Markdown zu HTML Umwandlung nutzt den <a href="http://parsedown.org/">Parsedown</a>-Parser
-      von Emanuil Rusev.
+      Dieses Plugin integriert das jQuery-Plugin Flexslider von Tyler Smith in CMSimple_XH.
+      Die Markdown zu HTML Umwandlung nutzt den Parsedown-Parser von Emanuil Rusev.
     </description>
     <!-- additional languages are possible, i.e. da, fr, pl, ... -->
     <!-- The use of this language is limited by the website where the repository is hosted. -->
